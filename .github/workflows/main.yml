@@ -24,7 +24,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker build \
-            -t ${{ secrets.DOCKERHUB_USERNAME }}/releasetracker-backend:1.0.1 \
+            -t ${{ secrets.DOCKERHUB_USERNAME }}/releasetracker-backend:1.0.2 \
             ./backend
 
       - name: Push Docker image
