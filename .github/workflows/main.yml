@@ -34,3 +34,8 @@ jobs:
       - name: Push Docker image
         run: |
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/releasetracker-backend:1.0.2
+
+      - name: Notify Release Tracker (mock)
+        run: |
+          echo "Mock call to Release Tracker API"
+          
