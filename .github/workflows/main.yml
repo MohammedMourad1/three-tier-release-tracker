@@ -7,6 +7,14 @@ on:
     paths:
       - "backend/**"
 
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "backend/**"
+
+  workflow_dispatch:
+
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
@@ -29,4 +37,4 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/releasetracker-backend:1.0.1
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/releasetracker-backend:1.0.2
