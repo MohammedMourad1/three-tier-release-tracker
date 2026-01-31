@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: releasetracker-backend
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/MohammedMourad1/three-tier-release-tracker.git
+    targetRevision: main
+    path: helm/backend
+    helm:
+      valueFiles:
+        - values.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: releasetracker
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
